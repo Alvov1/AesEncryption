@@ -80,7 +80,7 @@ std::pair<AesObject::KeyArray, AesObject::IvArray> AesObject::prepareKeyIV(const
     KeyArray key_{};
     for(unsigned i = 0; i < (key.size() >= 32 ? 32 : key.size()); ++i)
         key_[i] = static_cast<unsigned char>(key[i]);
-    for(unsigned i = key.size(); key.size() < 32; ++i)
+    for(unsigned i = key.size(); i < 32; ++i)
         key_[i] = static_cast<unsigned char>(' ');
 
     IvArray iv_{};

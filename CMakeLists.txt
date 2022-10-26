@@ -5,7 +5,7 @@ find_package(OpenSSL REQUIRED)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(AesEncryption main.cpp AesObject.cpp)
+add_executable(AesEncryption main.cpp AesObject.h AesObject.cpp AesTesting.h Encryption.h Exceptions.h)
 if (OPENSSL_FOUND)
     # Add the include directories for compiling
     target_include_directories(AesEncryption PRIVATE ${OPENSSL_INCLUDE_DIR})

